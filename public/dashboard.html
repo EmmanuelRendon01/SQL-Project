@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav d-flex w-100 justify-content-between">
+                    <!-- <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 pt-5">
+        <div class="d-flex justify-content-between">
+            <h1 id="bills">Bills</h1>
+        <button class="btn btn-primary" id="newDate" data-bs-toggle="modal" data-bs-target="#appointmentModal">New Bill</button>
+        </div>
+        
+        <table class="table mt-5">
+            <thead>
+                <tr>
+                    <th scope="col">ID_transaction</th>
+                    <th scope="col">Billing Period</th>
+                    <th scope="col">Amount Billed</th>
+                    <th scope="col">Amount Paid</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+
+            </tbody>
+        </table>
+
+        
+    </div>
+
+    <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="appointmentModalLabel">Create New Bill</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="modalForm">
+                        <div class="row g-3 mt-2">
+                            <div class="col-md-3">
+                                <label for="billing_period" class="form-label">Billing Period</label>
+                                <input type="date" class="form-control" id="billing_period" name="billing_period" required>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="amount_billed" class="form-label">Amount Billed</label>
+                                <input type="number" class="form-control" id="amount_billed" name="amount_billed" required>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="amount_paid" class="form-label">Amount Paid</label>
+                                <input type="number" class="form-control" id="amount_paid" name="amount_paid" required>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="id_customer" class="form-label">Email customer</label>
+                                <input type="email" class="form-control" id="id_customer" name="id_customer" required>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" form="modalForm" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateModalLabel">Update Bill</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="updateForm">
+                        <div class="row g-3 mt-2">
+                            <div class="col-md-6">
+                                <label for="updateAmount_billed" class="form-label">Amount Billed</label>
+                                <input type="number" class="form-control" id="updateAmount_billed" name="amount_billed" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="UpdateAmount_paid" class="form-label">Amount Paid</label>
+                                <input type="number" class="form-control" id="UpdateAmount_paid" name="amount_paid" required>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" form="updateForm" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <script type="module" src="./js/dashboard.js"></script>
+</body>
+
+</html>
