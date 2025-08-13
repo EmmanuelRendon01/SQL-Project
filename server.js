@@ -6,27 +6,29 @@ import csvRoutes from './app/routes/csvRoutes.js'
 import billRoutes from './app/routes/billsRoutes.js'
 import customerRoutes from './app/routes/customersRoutes.js'
 
-// Carga las variables de entorno desde el archivo .env
+// Load environment variables from .env file
 dotenv.config();
 
-// Crea una instancia de Express
+// Create an Express instance
+
 const app = express();
 
-// El middleware cors configura las cabeceras HTTP para que el servidor permita que otros dominios (orígenes) puedan hacer peticiones.
+// The cors middleware configures HTTP headers so that the server allows other domains (origins) to make requests.
 app.use(cors());
 
-//  es un middleware que procesa las peticiones entrantes con cuerpo JSON para que se pueda acceder a req.body como un objeto JavaScript.
+// Is a middleware that processes incoming requests with a JSON body so that req.body can be accessed as a JavaScript object.
 app.use(express.json());
 
-// Configura las rutas para el endpoint
+// Configure routes for the endpoint
 app.use('/api/files', csvRoutes);
 app.use('/api/bills', billRoutes);
 app.use('/api/customers', customerRoutes);
 
-// Configura el puerto de la aplicación, tomando la variable de entorno o el valor por defecto (3000)
+// Configure the application port, taking the environment variable or the default value (3000)
 const PORT = process.env.PORT || 9000;
 
-// Levanta el servidor y escucha en el puerto definido
+// Raise the server and listen on the defined port
+
 app.listen(PORT, () => {
   console.log(`Server running in http://localhost:${PORT}`);
 });
